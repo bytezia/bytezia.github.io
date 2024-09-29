@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytezia</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        #content {
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        a {
+            color: #1DB954;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        #follow-button {
+            background-color: #1DB954;
+            color: #121212;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        #follow-button:hover {
+            background-color: #0e7c40;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .celebrity {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .celebrity:hover {
+            color: #1DB954;
+        }
+        .quote {
+            display: none;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        // Random quotes from AI rappers and celebrities
+        const quotes = [
+            { name: "AI Rapper Lil Byte", text: "I'm coded to create beats, and my rhymes are always neat!" },
+            { name: "Virtual Celebrity Bit Queen", text: "I rule the digital space, one click at a time." },
+            { name: "AI Star ByteStar", text: "Every algorithm needs a rhythm, and I'm here to shine." }
+        ];
+
+        function showRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const celebrity = quotes[randomIndex];
+            const quoteElement = document.getElementById('quote');
+
+            quoteElement.innerText = `"${celebrity.text}" - ${celebrity.name}`;
+            quoteElement.style.display = 'block';
+        }
+
+        function followOnInstagram() {
+            window.open('https://www.instagram.com/bytezia.llc/', '_blank');
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h1>Welcome to Bytezia</h1>
+        <p>Follow us on <a href="https://www.instagram.com/bytezia.llc/" target="_blank">Instagram</a> for AI-powered content featuring rappers and celebrities!</p>
+        <button id="follow-button" onclick="followOnInstagram()">Follow Us on Instagram</button>
+        <div class="celebrity" onclick="showRandomQuote()">Click here to see what our AI celebrities are saying!</div>
+        <p id="quote" class="quote"></p>
+    </div>
+</body>
+</html>
