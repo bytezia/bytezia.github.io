@@ -1,92 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bytezia - Resources</title>
-    <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            overflow: hidden;
-            animation: fadeIn 2s ease-in-out;
-        }
-        nav {
-            margin-top: 20px;
-        }
-        nav a {
-            color: #1DB954;
-            text-decoration: none;
-            margin: 10px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        select {
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 1em;
-        }
-        .resource-info {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 600px;
-        }
-        footer {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script>
-        function showResources() {
-            const resourceInfo = {
-                'Programming': 'Learn programming through Coursera’s "Programming for Everybody" by University of Michigan, books like "Clean Code" by Robert Martin, and online coding platforms such as Codecademy.',
-                'AI': 'Start with Coursera’s "AI For Everyone" by Andrew Ng, read "Artificial Intelligence: A Guide for Thinking Humans" by Melanie Mitchell, and explore TensorFlow tutorials.',
-                'ML': 'Begin with Coursera’s "Machine Learning" by Andrew Ng, read "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" by Aurélien Géron, and practice using Kaggle datasets.'
-            };
-
-            const selectedResource = document.getElementById('resource-select').value;
-            document.getElementById('resource-info').innerText = resourceInfo[selectedResource] || '';
+        function toggleContent(sectionId) {
+            const content = document.getElementById(sectionId);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
         }
     </script>
 </head>
+
 <body>
-    <h1>Resources for Learning</h1>
-    <select id="resource-select" onchange="showResources()">
-        <option value="">Select a Resource</option>
-        <option value="Programming">Programming</option>
-        <option value="AI">Artificial Intelligence (AI)</option>
-        <option value="ML">Machine Learning (ML)</option>
-    </select>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
 
-    <div id="resource-info" class="resource-info"></div>
+    <section class="landing">
+        <h1>Learning Resources</h1>
+        <button onclick="toggleContent('programming')">Programming Resources</button>
+        <div id="programming" style="display:none;">
+            <h2>Programming Resources</h2>
+            <ul>
+                <li><a href="https://www.coursera.org/learn/python" target="_blank">Python for Everyone (Coursera)</a></li>
+                <li>Book: "Eloquent JavaScript" by Marijn Haverbeke</li>
+                <li>Website: <a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a></li>
+            </ul>
+        </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
+        <button onclick="toggleContent('ai')">AI Resources</button>
+        <div id="ai" style="display:none;">
+            <h2>Artificial Intelligence Resources</h2>
+            <ul>
+                <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">Deep Learning Specialization (Coursera)</a></li>
+                <li>Book: "Artificial Intelligence: A Modern Approach" by Stuart Russell and Peter Norvig</li>
+            </ul>
+        </div>
+
+        <button onclick="toggleContent('ml')">Machine Learning Resources</button>
+        <div id="ml" style="display:none;">
+            <h2>Machine Learning Resources</h2>
+            <ul>
+                <li><a href="https://www.coursera.org/learn/machine-learning" target="_blank">Machine Learning by Andrew Ng (Coursera)</a></li>
+                <li>Book: "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" by Aurélien Géron</li>
+            </ul>
+        </div>
+    </section>
 
     <footer>
         <p>Follow us on <a href="https://www.instagram.com/bytezia.io/" target="_blank">Instagram</a></p>
     </footer>
 </body>
+
 </html>
+
